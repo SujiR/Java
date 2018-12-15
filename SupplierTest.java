@@ -1,5 +1,7 @@
 package com.niit.test;
 
+
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.dao.SupplierDAO;
@@ -7,7 +9,7 @@ import com.niit.model.Supplier;
 
 public class SupplierTest 
 {
-	public static void main(String arg[])
+    public static void main(String[] args) 
 	{
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 		context.scan("com.niit");
@@ -17,11 +19,9 @@ public class SupplierTest
 		
 		Supplier supplier=new Supplier();
 		supplier.setSupplierId(1);
-		supplier.setSupplierName("Rizwan");
-		supplier.setSupplierLocation("Chennai,Karambakkam,porur.");
+		supplier.setSupplierName("Vino");
+		supplier.setSupplierLocation("Chennai");
 		
 		supplierDAO.addSupplier(supplier);
-		
-				
 	}
 }

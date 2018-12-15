@@ -5,7 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.niit.dao.CategoryDAO;
 import com.niit.model.Category;
 
-public class CategoryTest
+public class CategoryTest 
 {
 	public static void main(String arg[])
 	{
@@ -17,11 +17,9 @@ public class CategoryTest
 		
 		Category category=new Category();
 		category.setCategoryId(1);
-		category.setCategoryName("Fantacy");
-		category.setCategoryDesc("Fantasy is a genre that uses magic and other supernatural forms as a primary element of plot, theme, and/or setting.");
+		category.setCategoryName("Hyundai Elantra");
+		category.setCategoryDesc("Price 13.7L,Mileage 14.59 to 22.5 Km per Litre, Engine 1582 to 1999cc");
 		
 		categoryDAO.addCategory(category);
-		
-				
-	}
+}
 }
