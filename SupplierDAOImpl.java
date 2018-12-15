@@ -12,78 +12,79 @@ import org.springframework.stereotype.Repository;
 
 import com.niit.model.Supplier;
 @Repository
-public class SupplierDAOImpl implements SupplierDAO 
+public class SupplierDAOImpl  implements SupplierDAO
 {
-  public SupplierDAOImpl()
-  {
-	  System.out.println("Supplier");
-  }
-  @Autowired
-  SessionFactory sessionfactory;
-  @Transactional
-	public boolean addSupplier(Supplier supplier)
+	public SupplierDAOImpl()
+	{
+		System.out.println("Supplier object");
+	}
+	@Autowired
+	SessionFactory sessionFactory;
+    @Transactional
+    
+	public boolean addSupplier(Supplier supplier) 
 	{
 		try
 		{
-		sessionfactory.getCurrentSession().save(supplier);
+		sessionFactory.getCurrentSession().save(supplier);
 		return true;
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception arised"+e);
-			return false;
+		System.out.println("Exception Arised:"+e);
+		return false;
 		}
 	}
-
-	public Supplier getSupplier(int supplierId)
+    
+	public Supplier getSupplier(int supplierId) 
 	{
-		// TODO Auto-generated method stub
-		Session session=sessionfactory.openSession();
+		Session session=sessionFactory.openSession();
 		Supplier supplier=(Supplier)session.get(Supplier.class,supplierId);
 		session.close();
 		return supplier;
-
+		
 	}
-    @Transactional
-	public boolean deleteSupplier(Supplier supplier)
+	@Transactional
+	public boolean deleteSupplier(Supplier supplier) 
 	{
-		// TODO Auto-generated method stub
 		try
 		{
-		sessionfactory.getCurrentSession().delete(supplier);
-		return true;
+			sessionFactory.getCurrentSession().delete(supplier);
+			return true;
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception arised"+e);
+			System.out.println("Exception Arised:"+e);
 			return false;
-		}
+		}	
+		
 	}
     @Transactional
-	public boolean updateSupplier(Supplier supplier)
+	public boolean updateSupplier(Supplier supplier) 
 	{
-		// TODO Auto-generated method stub
 		try
 		{
-		sessionfactory.getCurrentSession().update(supplier);
-		return true;
+			sessionFactory.getCurrentSession().update(supplier);
+			
+			return true;
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception arised"+e);
+			System.out.println("Exception Arised:"+e);
 			return false;
-		}
+		}	
+		
 	}
 
-	public List<Supplier> getSuppliers()
+	public List<Supplier> getSuppliers() 
 	{
-		// TODO Auto-generated method stub
-		Session session=sessionfactory.openSession();
-		Query query=session.createQuery("from supplier");
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Supplier");
 		List<Supplier> listSuppliers=(List<Supplier>)query.list();
 		return listSuppliers;
+
+		
 	}
 
+	
 }
-
-

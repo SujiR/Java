@@ -6,10 +6,9 @@ import com.niit.model.Supplier;
 
 public interface SupplierDAO 
 {
-  public boolean addSupplier(Supplier supplier);
-  public Supplier getSupplier(int SupplierID);
-  public boolean deleteSupplier(Supplier supplier);
-  public boolean updateSupplier(Supplier supplier);
-  public List<Supplier> getSuppliers();
-  
+	public boolean addSupplier(Supplier supplier);
+	public Supplier getSupplier(int SupplierId);
+	public boolean deleteSupplier(Supplier supplier);
+	public boolean updateSupplier(Supplier supplier);
+	public List<Supplier> getSuppliers();
 }
